@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		width:300px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		background-color: #f4f4f4;
+		color:#333; /*기본글씨색상*/
+		line-height: 1.6;
+		padding:20px;
+	}
+	div{
+		width: 90%;
+		max-width: 800px;
+		margin: auto;
+		background: #fff;
+		padding:20px;
+		box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+	}
+	#persnal{
+		border : 1px solid #ddd;
+		font-weight:bold;
+		background-image: url("img/back1.jpeg");
+	}
+	#select{
+		background-color: #f2f2f2;
+		color:#333;
+	}
+	input[type="submit"]{
+		background-color: #4CAF50;
+		border: none;
+		color:white;
+		padding:10px 20px;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+</style>
+
+</head>
+<body>
+<form>
+	<div id="persnal">
+		<p>이름 : <input type="text" name="usrname" id="usrname" max="5"></p>
+		<p>생년월일 : <input type="date" name="date" id="date"></p>
+		<p>주소 <br>
+			  우편번호 : <input type="search" name="zipcode" id="zipcode"><br>
+			  시/도 : <input type="text" name="adress1" id="adress1"max="10"><br>
+			  읍/면/동:<input type="text" name="adress2" id="adress2"max="20"><br>
+			  나머지주소: <input type="text" name="adress3" id="adress3"max="20">
+		</p>
+		<p>요금 납부 방법 :
+			<select name="payment" id="payment" onchange="check()">
+				<option value="bank">계좌자동이체</option>
+				<option value="credit_c">신용카드</option>
+				<option value="check_c">체크카드</option>
+				<option value="warn">안낼래요</option>
+			</select>
+		</p>
+		<p>연락처 : <input type="tel" name="tel" id="tel"></p>
+		<p>변경신청날짜 : <input type="datetime-local" name="datetime-local" id="datetime-local"></p>
+	</div>
+
+	<div id="select">
+		<p>기종선택 :
+			<select name="device" id="device">
+				<optgroup label="삼성">
+					<option>Galaxy S24</option>
+					<option>Galaxy S24+</option>
+					<option>Galaxy S24 Ultra</option>
+					<option>Galaxy S23</option>
+					<option>Galaxy S23+</option>
+					<option>Galaxy S23 Ultra</option>
+				</optgroup>
+				<optgroup label="애플">
+					<option>iPhone 15</option>
+					<option>iPhone 15 pro</option>
+					<option>iPhone 15 pro max</option>
+					<option>iPhone 14</option>
+					<option>iPhone 14 pro</option>
+					<option>iPhone 14 pro max</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>요금제 선택 :
+			<select name="feetype" id="feetype">
+				<option value="55000">제일 저렴한 요금제</option>
+				<option value="88000">중간 요금제</option>
+				<option value="100000">데이터 무제한 요금제</option>
+			</select>
+		</p>
+		<p>색상 선택 : <input type="color" name="deviceColor" id="deviceColor" onchange="changeBack()"></p>
+
+	</div>
+	<div id="final">
+		<p><input type="submit" value="제출하기"></p>
+	</div>
+</form>
+
+<script>
+	function check() {
+		var pay = document.getElementById("payment").value;
+		if (pay == "warn"){
+			alert("다시 생각해 보세요!");
+		}
+	}
+	function changeBack() {
+		var color = document.getElementById("deviceColor").value;
+		var select = document.getElementById("select");
+		select.style.backgroundColor=color;
+	}
+</script>
+
+
+</body>
+</html>
